@@ -1,6 +1,6 @@
 # AI-Powered Text Summarizer
 
-COP 2501 capstone web application that summarizes pasted text using extractive NLP (TextRank via Sumy).
+COP 2501 capstone web application that summarizes pasted text using Groq's Llama 3 8B model.
 
 ## Quick start
 
@@ -8,9 +8,12 @@ COP 2501 capstone web application that summarizes pasted text using extractive N
 py -3 -m venv .venv
 .venv\Scripts\activate        # Windows
 pip install -r requirements.txt
+copy .env.example .env        # Windows — then add your Groq API key
 cd backend
 python app.py
 ```
+
+Get a free API key at [console.groq.com](https://console.groq.com).
 
 Open [http://localhost:5000](http://localhost:5000).
 

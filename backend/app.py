@@ -8,7 +8,7 @@ from pathlib import Path
 from flask import Flask, jsonify, request, send_from_directory
 from flask_cors import CORS
 
-from summarizer import count_words, summarize_text, validate_input
+from summarizer import count_words, generate_summary, validate_input
 
 BASE_DIR = Path(__file__).resolve().parent
 FRONTEND_DIR = BASE_DIR.parent / "frontend"
@@ -39,7 +39,7 @@ def summarize():
         return jsonify({"error": error}), status
 
     try:
-        summary = summarize_text(text.strip(), sentences)
+        summary = generate_summary(text.strip(), sentences)
     except Exception as exc:
         return jsonify({"error": f"Summarization failed: {exc}"}), 500
 
@@ -48,7 +48,7 @@ def summarize():
             "summary": summary,
             "input_words": count_words(text),
             "summary_sentences": sentences,
-            "algorithm": "TextRank",
+            "algorithm": "Groq Llama 3 8B",
         }
     )
 
