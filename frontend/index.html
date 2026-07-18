@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Text Summarizer</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header class="hero">
+        <p class="eyebrow">COP 2501 Capstone</p>
+        <h1>AI-Powered Text Summarizer</h1>
+        <p class="subtitle">
+          Paste long text and get a concise extractive summary powered by TextRank NLP.
+        </p>
+      </header>
+
+      <section class="panel">
+        <label for="source-text">Source text</label>
+        <textarea
+          id="source-text"
+          rows="12"
+          placeholder="Paste an article, essay, or notes here..."
+        ></textarea>
+
+        <div class="controls">
+          <div class="field">
+            <label for="sentence-count">Summary length</label>
+            <select id="sentence-count">
+              <option value="3">3 sentences</option>
+              <option value="5" selected>5 sentences</option>
+              <option value="7">7 sentences</option>
+            </select>
+          </div>
+
+          <button id="summarize-btn" type="button">Summarize</button>
+        </div>
+
+        <p id="error-message" class="error hidden" role="alert"></p>
+      </section>
+
+      <section class="panel output-panel hidden" id="output-panel">
+        <div class="output-header">
+          <h2>Summary</h2>
+          <p id="summary-meta" class="meta"></p>
+        </div>
+        <p id="summary-text" class="summary"></p>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
